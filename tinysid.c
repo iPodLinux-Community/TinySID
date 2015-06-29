@@ -12,7 +12,8 @@ void show_info(int argc)
 {
 	printf("TinySID v0.94 linux version\n");
 	printf("(c)Copyright 1999-2006 T. Hinrichs and R. Sinsch.\n");
-	printf("All rights reserved.\n\n");
+	printf("All rights reserved.\n");
+	printf("Modified by Keripo.\n\n");
 	if (argc < 2)
 	{
 		printf("Usage: tinysid [sid-file]\n");
@@ -35,9 +36,9 @@ int main(int argc, char *argv[])
 	printf("COPYRIGHT: %s\n\n", song_copyright);
 	
 	cpuJSR(init_addr, actual_subsong);
-	printf("Playing... Hit return quit.\n");
+	printf("Playing... Press menu to exit.\n");
 	start_playing(play_addr, play_speed);
-	getchar();
+	ipod_init_volume_control();
 	stop_playing();
 	return(0);
 }
